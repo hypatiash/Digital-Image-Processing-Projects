@@ -1,0 +1,47 @@
+cerend=im2double(ceros);
+[r,c]=size(cerend);
+noise=rand(r,c)-0.22;
+subplot(2,2,1);
+imshow(cerend+noise);
+title('[-0.22 0.22] noise range');
+
+
+ceren_grayd=im2double(ceren_gray);
+[r2,c2]=size(ceren_grayd);
+noise1=rand(r2,c2)-0.22;
+subplot(2,2,2);
+imshow(ceren_grayd+noise1);
+title('[-0.22 0.22] noise range');
+
+
+
+ceren1d=im2double(ceros);
+[r,c]=size(ceren1d);
+noise2=rand(r,c)-0.32;
+subplot(2,2,3);
+imshow(ceren1d+noise2);
+title('[-0.32 0.32] noise range');
+
+
+ceren_grayd1=im2double(ceren_gray);
+[r2,c2]=size(ceren_grayd);
+noise3=rand(r2,c2)-0.32;
+subplot(2,2,4);
+imshow(ceren_grayd1+noise3);
+title('[-0.32 0.32] noise range');
+subplot(2,2,1);
+imhist(ceros);
+title('Original image of ceros histogram');
+
+subplot(2,2,2);
+imhist(cerend+noise);
+title('Noisy image of ceros histogram');
+
+
+subplot(2,2,3);
+imhist(ceren_gray);
+title('Original image of ceren_gray of histogram');
+
+subplot(2,2,4);
+imhist(ceren_grayd+noise1);
+title('Noisy image of ceren_gray histogram');
