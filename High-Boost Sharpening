@@ -1,0 +1,9 @@
+h=[0,-1,0;-1,4,-1;0,-1,0];
+imlap=imfilter(d_gray_ceren,h);
+
+subplot(1,2,1)
+imshow(d_gray_ceren)
+title('Original Image')
+subplot(1,2,2)
+imshow(d_gray_ceren+imlap)
+title('Filtered Image')
