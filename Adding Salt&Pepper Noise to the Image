@@ -1,0 +1,49 @@
+saltnpepper=snp(ceros,0.12);
+saltnpepper1=snp(ceren_gray,0.12);
+
+saltnpepper2=snp(ceros,0.22);
+saltnpepper3=snp(ceren_gray,0.22);
+
+subplot(2,3,1);
+imshow(ceros);
+title('original image');
+subplot(2,3,2);
+imshow(saltnpepper);
+title('ceros with 12% noise');
+subplot(2,3,5);
+imshow(saltnpepper1);
+title('ceren_gray with 12% noise');
+
+subplot(2,3,4);
+imshow(ceren_gray);
+title('original image');
+subplot(2,3,3);
+imshow(saltnpepper2);
+title('ceros with 22% noise');
+subplot(2,3,6);
+imshow(saltnpepper3);
+title('ceren_gray with 22% noise');
+
+subplot(1,2,1);
+imhist(ceren_gray);
+title('histogram of ceren_gray');
+subplot(1,2,2);
+imhist(saltnpepper1);
+title('histogram of ceren_gray with 12% noise');
+
+
+
+function output =snp(img, ratio)
+[rows, columns]=size(img);
+pixel_number=rows*columns;
+
+n_pixel=round(ratio*pixel_number);
+n_ind=randperm(pixel_number,n_pixel);
+salt=rand(rows,columns)<0.5;
+pepper=rand(rows,columns)>0.5;
+
+ output=img;
+ output(n_ind) = output(n_ind) + salt(n_ind) * 255;
+ output(n_ind) = output(n_ind) - pepper(n_ind) * 255;
+
+end
