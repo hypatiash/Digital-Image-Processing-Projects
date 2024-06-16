@@ -1,0 +1,10 @@
+ foto=imread('im1.jpg');
+ imshow(foto)
+ gri_foto=rgb2gray(foto);
+ dgri_foto=im2double(gri_foto);
+ imshow(dgri_foto);
+ histogram(dgri_foto);
+ subplot(1,2,1);
+ histogram(dgri_foto);
+ subplot(1,2,2);
+ imshow(dgri_foto);
