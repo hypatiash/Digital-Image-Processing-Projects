@@ -1,0 +1,25 @@
+tic;
+ceren=imread('WhatsApp Image 2023-11-10 at 23.21.54.jpeg');
+subplot(141)
+imshow(ceren)
+title('Original Image')
+
+gray_ceren=rgb2gray(ceren);
+dgray_ceren=im2double(gray_ceren);
+subplot(142)
+imshow(dgray_ceren)
+title('Grayscale Image')
+
+
+[row,col]=size(dgray_ceren);
+fft_ceren=fft2(dgray_ceren,row,col);
+subplot(143)
+imshow(real(fft_ceren))
+title('FFT Of the Grayscale Image')
+
+fft_ceren(12,1)=45000;
+noisedfft=ifft2(fft_ceren);
+subplot(144)
+imshow(real(noisedfft))
+title(' Grayscale Image with Periodic Noise ')
+toc;
