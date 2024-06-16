@@ -1,0 +1,30 @@
+tic;
+
+ceren=imread('WhatsApp Image 2023-11-10 at 23.21.54.jpeg');
+subplot(131);
+imshow(ceren)
+title('Original Image')
+
+ceren_gray=rgb2gray(ceren);
+dceren_gray=im2double(ceren_gray); 
+subplot(132)
+imshow(dceren_gray);
+title('Original Grayscale Image','fontsize', [12]);
+ 
+[x,y]=size(dceren_gray);
+fft_ceren=fft2(dceren_gray,x,y);
+ 
+n=2*round(y/100)+1;     
+o = ones(n);
+mask = o/sum(o(:));
+
+mask_fft=fft2(mask,x,y);
+ 
+Blur_fft_img=fft_ceren.*mask_fft;
+
+blur_img=ifft2(Blur_fft_img);
+subplot(133)
+imshow(blur_img)
+title('Blurred Image')
+ 
+toc;
