@@ -1,0 +1,14 @@
+>> midX = round(witdh / 2);
+>> midY = round(height / 2);
+>> r=294;
+>> [X, Y] = meshgrid(1:witdh, 1:height);
+>> d = sqrt((X - midX).^2 + (Y - midY).^2);  %% calculates distance for every pixel
+>> bl_circle=d>=r;
+>> black=[0,0,0];
+% After I wrote those steps, The areas that should have been black turned out to be slightly transparent blue. So, I added for loop to make sure determined areas are black.
+>> for rgb_ch=1:3
+new=ceren(:,:,rgb_ch);
+new(bl_circle)=black(rgb_ch);
+ceren(:,:,rgb_ch)=new;
+end
+>> imshow(ceren);
