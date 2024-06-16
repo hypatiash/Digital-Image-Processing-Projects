@@ -16,7 +16,7 @@ This repository includes the mini projects that have been done during fall semes
 ## Contrast Enhancement Using Piecewise Linear Transformation
 *Now, you will apply piecewise linear transformation with 2 linear pieces to enhance the double grayscale image. Try a few different parameters and report the results. Determine and report the best parameters (a and ya) as you can to enhance your image. Remember that L=1 for double grayscale images. Display and report the obtained images and their histogram side by side in the same figure window.*
 
-### Contrast Enhancement Using Gamma Transformation
+## Contrast Enhancement Using Gamma Transformation
 *Try to enhance the contrast of the original double grayscale image using gamma transformation. Determine and report the best parameters as you can to enhance your image. Display and report the transformed image and its histogram side by side in the same figure window.*
 
 ## Histogram & Adaptive Histogram Equalization
@@ -39,10 +39,12 @@ This repository includes the mini projects that have been done during fall semes
 
 ## Plotting the values of a pixel row
 *In this part, you will plot the values of the pixels in a row you select in your double grayscale image(use subplot). From the graph, try to find in which pixel the brightness is the highest. Then indicate the row you have plotted by making that row white and display using imshow (use subplot).*
+
 ![image](https://github.com/hypatiash/Digital-Image-Processing-Projects/assets/142400240/5accd440-b570-4b3e-aaa6-3eca1f21a213)
 
 ## Finding the horizontal 1st order derivative
 *Take the horizontal first order derivative of your double grayscale image(without white line). Then plot the same row (which you selected in Q1) of your image derivative (use subplot). Draw a white line on the same row of the image derivative as in question 1 and display (use subplot).*
+
 ![image](https://github.com/hypatiash/Digital-Image-Processing-Projects/assets/142400240/19d08c90-c51a-4e9f-942e-c7250021a544)
 
 ## Finding the horizontal 2nd order derivative
@@ -60,15 +62,6 @@ This repository includes the mini projects that have been done during fall semes
 ## Finding the edges
 *Write a Matlab code that finds the edges of your name by using morphological operations.*
 
-## Removing desired text according to its “size” by using morphological operations
-*Use morphological operations to clear your name with smallest (10+d) font size while preserving the others. Then clear smallest(10+d) and medium(25+d) size texts while preserving the largest(35+d) text. Note that after the operations the texts on your images should be readable although there might be some distortions. Try to merge broken letters.*
-
-## Detecting the longest word
-*Write a Matlab code that automatically detects the longest horizontal word (that has largest width) in your name by using morphological operations.*
-
-## Removing desired text according to its “orientation” by using morphological operations
-*Delete the horizontal text while preserving the vertical.*
-
 ## Skin color detection in YCbCr color space
 *Convert your RGB color image into YCbCr color space. Mark the pixels with skin color as white and others as black using the following YCbCr thresholds: Y > 80 , 85 < Cb <135, 135 < Cr < 180*
 
@@ -81,6 +74,7 @@ This repository includes the mini projects that have been done during fall semes
 
 ## Distorting image by blurring in frequency domain
 *Take the FFT of your original grayscale image. Then blur your photo(using its FFT) with an "n x n" averaging filter in frequency domain.*
+
 ![image](https://github.com/hypatiash/Digital-Image-Processing-Projects/assets/142400240/d19c399d-8e97-43b4-af88-b8560b2e3eef)
 
 ## Reconstructing blurred image by inverse filtering
