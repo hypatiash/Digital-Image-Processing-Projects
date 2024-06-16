@@ -1,0 +1,15 @@
+w_h=[2 1 2;2 1 2;2 1 2]/15;
+weighted_image=imfilter(d_gray_ceren,w_h);
+
+subplot(1,2,1)
+imshow(d_gray_ceren)
+title('original')
+subplot(1,2,2)
+imshow(weighted_image)
+title('weighted')
+
+hold on;
+figure;
+
+imshow(2*d_gray_ceren-weighted_image)
+title('unsharp masked')
