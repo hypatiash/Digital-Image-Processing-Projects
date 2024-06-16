@@ -1,0 +1,22 @@
+tic;
+ceren=imread('WhatsApp Image 2023-11-10 at 23.21.54.jpeg');
+imshow(ceren)
+ycbcr_ceren = rgb2ycbcr(ceren);
+imshow(ycbcr_ceren)
+
+y = ycbcr_ceren(:,:,1);
+cb = ycbcr_ceren(:,:,2);
+cr = ycbcr_ceren(:,:,3);
+
+newceren= (y > 80) & ( cb > 85) & (cb < 135) & (cr > 135) & (cr < 180);
+
+subplot(131)
+imshow(ceren)
+title('Original Image')
+subplot(132)
+imshow(ycbcr_ceren)
+title('YCbCr Image')
+subplot(133)
+imshow(newceren)
+title('Final Result')
+toc;
