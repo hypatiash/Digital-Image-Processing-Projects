@@ -1,0 +1,46 @@
+sonuc1= Avg(myphoto,7);
+sonuc2=Avg(mygrayphoto,7);
+
+subplot(2,2,1);
+imshow(myphoto);
+title('noisy ceros without averaging filter');
+subplot(2,2,2);
+imshow(sonuc1);
+title('ceros with smoothing filter');
+
+subplot(2,2,3);
+imshow(mygrayphoto);
+title('noisy ceren_gray without averaging filter');
+subplot(2,2,4);
+imshow(sonuc2);
+title('ceren_gray with smoothing filter');
+
+
+
+
+
+function output= Avg(img, size_f)
+[rows, columns]=size(img);
+fz=size_f;
+output=zeros((rows-fz+1),(columns-fz+1));
+[l,u]=size(output);
+mask=ones(fz);
+[n,a]=size(mask);
+sum=0;
+x=0 , y=0;
+for i=1:l
+    for j=1:u
+        for o=1:n
+            for r=1:a 
+                sum=sum+img(i+x,j+y)*mask(o,r);
+                y=y+1;
+            end
+            y=0;
+            x=x+1;
+        end
+        x=0;
+        output(i,j)=(1/(n*a))*sum;
+        sum=0;
+    end
+end
+end
