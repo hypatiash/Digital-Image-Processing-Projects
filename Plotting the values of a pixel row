@@ -1,0 +1,16 @@
+ceren=imread('WhatsApp Image 2023-11-10 at 23.21.54.jpeg');
+gray_ceren=rgb2gray(ceren);
+d_gray_ceren=im2double(gray_ceren);
+sel_row=220;
+
+subplot(1,2,1)
+plot(gray_ceren(sel_row,:))
+title('Selected row:1014','FontSize',4,'FontWeight','bold')
+xlabel('Pixel Index')
+ylabel('Pixel Value')
+hold on;
+subplot(1,2,2)
+white=255;
+gray_ceren(sel_row,:)=white;
+imshow(gray_ceren)
+%220th row selected
