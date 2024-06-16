@@ -1,0 +1,26 @@
+rceros_bin=~ceros_bin
+[rows cols]=size(rceros_bin)
+
+imfilter=ceros_bin*0;
+SE=[1 1 1;1 1 1; 1 1 1];
+
+for row=2:530
+    for col=2:884
+        patch=rceros_bin(row-1:row+1,col-1:col+1);
+        patchf=patch.*SE;
+        patchs=sum(patchf(:));
+
+        if patchs>0
+            imfilter(row,col)=1;
+        else
+            imfilter(row,col)=0;
+        end
+    end
+end
+
+subplot(1,2,1)
+imshow(rceros_bin)
+title('Original Image')
+subplot(1,2,2)
+imshow(imfilter)
+title('Dilated Image')
