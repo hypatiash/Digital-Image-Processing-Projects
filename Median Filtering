@@ -1,0 +1,29 @@
+final1=medf(saltnpepper1);
+final2=medf(saltnpepper);
+
+subplot(2,2,1);
+imshow(saltnpepper);
+title('previous image of ceros');
+subplot(2,2,2);
+imshow(final2);
+title('ceros with median filter');
+
+subplot(2,2,3);
+imshow(saltnpepper1);
+title('previous image of ceren_gray');
+subplot(2,2,4);
+imshow(final1);
+title('ceren_gray with median filter');
+
+
+function output = medf(image)
+    [rows, columns] = size(image);
+    output = zeros(rows, columns);
+
+    for u= 2:rows-1
+        for b = 2:columns-1
+            n = image(u-1:u+1, b-1:b+1);
+            output(u, b) = median(n(:));
+        end
+    end
+end
