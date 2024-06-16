@@ -1,0 +1,18 @@
+%Foreground=2 (red) Bacground=7 (Violet)
+>> bg_1h=175;
+>> r_bg = aybu(:,:,1) > bg_th;
+>> g_bg = aybu(:,:,1) > bg_th;
+>> b_bg = aybu(:,:,1) > bg_th;
+>> violet=[127,0,255];
+>> for a=1:3
+a_ch = aybu(:,:,a);
+a_ch(r_bg & g_bg & b_bg) = violet(a);
+aybu(:,:,a) = a_ch;
+end
+>> red=[255,0,0];
+>> for a=1:3;
+a_ch = aybu(:,:,a);
+a_ch(~r_bg|~g_bg|~b_bg)=red(a);
+aybu(:,:,a) = a_ch;
+end
+>> imshow(aybu);
