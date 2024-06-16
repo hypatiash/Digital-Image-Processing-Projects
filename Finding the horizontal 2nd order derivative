@@ -1,0 +1,25 @@
+[gx,gy]=imgradientxy(d_gray_ceren);
+rv=gx(sel_row,:);
+xcol=1:1:size(gx,2);
+
+[gx3,gy3]=imgradientxy(gx);
+rv1=gx3(sel_row,:);
+xcol1=1:1:size(gx3,2);
+
+abs_gx3=abs(gx3);
+rv2=abs_gx3(sel_row,:);
+xcol2=1:1:size(abs_gx3,2);
+
+gx3_1=gx3;
+gx3_1(220,:,:)=1;
+
+
+figure;
+subplot(2,4,1); imshow(d_gray_ceren); title("Original Image");
+subplot(2,4,2); imshow(gx); title("Horizontal 1st Order Derivative");
+subplot(2,4,3); imshow(gx3); title("Horizontal 2nd Order Derivative");
+subplot(2,4,4); imshow(abs_gx3); title("Absolute of Second-Order Derivative'");
+subplot(2,4,5); plot(xcol,rv); title("'Graph of First-Order Derivative");
+subplot(2,4,6); plot(xcol1,rv1); title("Graph of Second-Order Derivative");
+subplot(2,4,7); plot(xcol2,rv2); title("Graph of absolute 2nd Order Derivative");
+subplot(2,4,8); imshow(gx3_1); title("Second-Order Derivative with white line");
