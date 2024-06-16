@@ -1,0 +1,32 @@
+tic;
+ceren = imread('WhatsApp Image 2023-11-10 at 23.21.54.jpeg');
+subplot(141);
+imshow(ceren)
+title('Original Image')
+
+ceren_gray = rgb2gray(ceren);
+dceren_gray = im2double(ceren_gray); 
+subplot(142)
+imshow(dceren_gray);
+title('Original Grayscale Image');
+
+[r,c] = size(dceren_gray);
+ceren_fft = fft2(dceren_gray, r, c); 
+ceren_fft = fftshift(ceren_fft); 
+mask = zeros(size(ceren_fft));
+mask(r/2-r/4 : r/2+r/4, c/2-c/4 : c/2+c/4) = 1; 
+
+ 
+
+ceren_fft = ceren_fft .* mask;
+subplot(143)
+imshow(ceren_fft); 
+title('FFT Image at Frequency Domain');
+
+
+ceren_fft = ifftshift(ceren_fft); 
+comp_ceren = ifft2(ceren_fft); 
+subplot(144);
+imshow(comp_ceren); 
+title('Compressed Image')
+toc;
