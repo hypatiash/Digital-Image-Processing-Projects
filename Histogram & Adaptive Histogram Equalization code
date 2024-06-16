@@ -1,0 +1,29 @@
+ceren = histeq(dgri_foto);
+subplot(1,3,1)
+imshow(dgri_foto)
+title('Grayscale Image')
+ 
+subplot(1,3,2)
+imshow(ceren)
+title('Enhanced Histogram Equalization Method')
+ 
+subplot(1,3,3)
+imhist(ceren)
+title('Histogram Equalization Image Histogram')
+%) Enhance the contrast of the original double grayscale image by using the adaptive histogram equalization method
+
+
+histeq_img=histeq(dgri_foto);
+adaptive_img=adapthisteq(dgri_foto);
+
+subplot(1,3,1);
+imshow(dgri_foto);
+title('Grayscale Image');
+
+subplot(1,3,2);
+imshow(histeq_img);
+title('Result with Histogram Equilization', 'FontSize',[8]);
+
+subplot(1,3,3);
+imshow(adaptive_img);
+title('Result with Adaptive Histogram Equilization','FontSize',[8]);
