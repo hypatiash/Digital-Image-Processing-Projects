@@ -1,0 +1,14 @@
+gamma=0.45;
+c=1;
+gamma_dgray=dgri_foto;
+for i=1:size(dgri_foto,1)
+ for j=1:size(dgri_foto,2)
+ gamma_dgray(i,j)=c*dgri_foto(i,j)^gamma;
+ end
+end
+subplot(1,2,1)
+imshow(gamma_dgray)
+title('Gamma Transformation')
+subplot(1,2,2)
+imhist(result)
+title('Histogram of Gamma Transformation')
