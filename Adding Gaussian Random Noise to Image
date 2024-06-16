@@ -1,0 +1,42 @@
+[rc, cc]=size(ceros);
+mu=0;
+sigma1=0.12;
+noiseGauss=sigma1*rand(rc,cc)+mu;
+myphoto=ceros+noiseGauss
+subplot(2,2,1);
+imshow(myphoto);
+title('Gaussian Random Noise with sigma=0.12 of ceros','FontSize',[9]);
+subplot(2,2,2);
+imhist(myphoto);
+title('Histogram of ceros with gaussian random noise sigma(0.12)');
+
+sigma2=0.22;
+noiseGauss2=sigma2*rand(rc ,cc)+mu;
+myphoto=ceros+noiseGauss2;
+subplot(2,2,3);
+imshow(myphoto);
+title('Gaussian Random Noise with sigma=0.22 of ceros','FontSize',[9]);
+subplot(2,2,4);
+imhist(myphoto);
+title('Histogram of ceros with gaussian random noise (sigma=0.22) ');
+% We already know the row and column of ceren_gray which is 120 220
+% respectively and mu is the same.
+
+
+noiseGauss1=sigma1*rand(row ,column)+mu;
+mygrayphoto=ceren_gray+noiseGauss1;
+subplot(2,2,1);
+imshow(mygrayphoto);
+title('Gaussian Random Noise with sigma=0.12 of ceren_gray','FontSize',[9])
+subplot(2,2,2);
+imhist(mygrayphoto);
+title('Histogram of ceren_gray with gaussian random noise (sigma=0.12)');
+
+noiseGauss3=sigma2*rand(row, column)+mu;
+mygrayphoto=ceren_gray+noiseGauss3;
+subplot(2,2,3);
+imshow(mygrayphoto);
+title('Gaussian Random Noise with sigma=0.22 of ceren_gray','FontSize',[9])
+subplot(2,2,4);
+imhist(mygrayphoto);
+title('Histogram of ceren_gray with gaussian random noise  (sigma=0.22)');
