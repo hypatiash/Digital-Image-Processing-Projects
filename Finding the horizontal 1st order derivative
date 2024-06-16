@@ -1,0 +1,23 @@
+[rows,cols,ch]=size(d_gray_ceren);
+rpixel=d_gray_ceren(sel_row,:);
+xcol=1:1:size(d_gray_ceren,2);
+[gx,gy]=imgradientxy(d_gray_ceren);
+xcol1=1:1:size(gx,2);
+rpixel1=gx(sel_row,:);
+gx1=gx;
+gx1(220,:,:)=1;
+
+figure; subplot(2,2,1);
+plot(xcol,rpixel)
+title("Graph of selected row")
+xlabel("colums"); ylabel("Pixel values");
+
+subplot(2,2,2);
+imshow(gx);
+title( "1st order derivative of the image")
+
+subplot(2,2,3)
+plot(xcol1,rpixel1)
+title("Graph of the 1st order derivative of the image with the white line")
+xlabel("colums"); ylabel("Pixel values");
+
