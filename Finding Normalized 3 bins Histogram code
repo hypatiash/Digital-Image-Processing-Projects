@@ -1,0 +1,60 @@
+ histogram(dgri_foto,3);
+ title(' 3 bins histogram');
+[h_variable,h]=hist(dgri_foto,3); 
+ [width, height]=size(dgri_foto);
+ total_pixel=height*width;
+ disp(['Total Number of Pixels:' num2str(total_pixel)]);
+Total Number of Pixels:307200
+normalized_hist=(h_variable/sum(h_variable))*total_pixel;
+ display(normalized_hist);
+normalized_hist =
+   1.0e+05 *
+    2.7662
+    0.1508
+    0.1550 
+ figure;
+ bar(h,h_variable,'hist');
+subplot(1,2,2);
+imshow(dgri_foto);
+title('grayscale image');
+subplot(1,2,1);
+bar(h,h_variable,'hist');
+title('normalized 3 bins');
+darker1=0;
+darker2=0.3;
+medium1=0.44;
+medium2=0.62;
+lighter1=0.77;
+lighter2=0.95;
+
+darkerint= dgri_foto >= darker1 & dgri_foto <= darker2;
+mediumint= dgri_foto >= medium1 & dgri_foto <= medium2;
+lightint= dgri_foto >= lighter1 & dgri_foto <= lighter2;
+
+
+numof_dark= nnz(darkerint);
+numof_med= nnz(mediumint);
+numof_light= nnz(lightint);
+
+tot_pixelnum= numel(dgri_foto);
+perc_of_dark=(numof_dark/tot_pixelnum)*100;
+perc_of_med=(numof_med/tot_pixelnum)*100;
+perc_of_light=(numof_light/tot_pixelnum)*100;
+
+>> display(perc_of_dark);
+
+perc_of_dark =
+
+   89.4391
+
+>> display(perc_of_med);
+
+perc_of_med =
+
+    2.5924
+
+>> display(perc_of_light);
+
+perc_of_light =
+
+    2.6406
